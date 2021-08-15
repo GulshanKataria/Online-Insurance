@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.layer2.Customer;
 import com.example.demo.layer2.Insurance;
 import com.example.demo.layer2.Travel;
 
@@ -26,8 +27,9 @@ public class InsuranceRepositoryImpl  extends BaseRepository implements Insuranc
 	public List<Insurance> selectCustomerById(int customerId){
 		EntityManager entityManager = getEntityManager();
 		System.out.println("debug selectInsuranceById");
-		Query query = entityManager.createQuery("select c from Customer c where c.custId =: cid");
-		query.setParameter("cid", customerId);
+		Customer customerObj = entityManager.find(Customer.class, customerId);
+		Query query = entityManager.createQuery("select i from Insurance i where i.customer =: custObj");
+		query.setParameter("custObj", customerObj);
 		List<Insurance> insList = query.getResultList();
 		return insList;
 	}
