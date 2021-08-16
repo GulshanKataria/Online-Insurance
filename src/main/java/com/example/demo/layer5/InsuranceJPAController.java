@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.layer2.Insurance;
 import com.example.demo.layer2.Travel;
+import com.example.demo.layer2.Vehicle;
 import com.example.demo.layer4.InsuranceServiceImpl;
 
 @CrossOrigin
@@ -21,6 +22,7 @@ import com.example.demo.layer4.InsuranceServiceImpl;
 @RequestMapping("/insurance")
 public class InsuranceJPAController {
 
+	
 	public InsuranceJPAController() {
 		System.out.println("In Layer 5 Insurance Controller");
 	}
@@ -36,6 +38,15 @@ public class InsuranceJPAController {
 		System.out.println("in getInsuranceByCustomerId() ... method");
 		return insuranceService.selectCustomerByIdService(customerId);
 	}
+	
+	@PostMapping
+	@ResponseBody
+	@RequestMapping(value = "/addInsurance")
+	public Insurance addInsurance(@RequestBody Insurance insurance) {
+		return insuranceService.insertInsuranceService(insurance);
+	 }
+	
+	
 	
 	
 }

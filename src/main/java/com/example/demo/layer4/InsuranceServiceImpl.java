@@ -20,8 +20,8 @@ public class InsuranceServiceImpl implements InsuranceService {
 	InsuranceRepositoryImpl insuranceRepo;
 
 	@Override
-	public void insertInsuranceService(Insurance ins) {
-		insuranceRepo.insertInsurance(ins);
+	public Insurance insertInsuranceService(Insurance ins) {
+		return insuranceRepo.insertInsurance(ins);
 
 	}
 

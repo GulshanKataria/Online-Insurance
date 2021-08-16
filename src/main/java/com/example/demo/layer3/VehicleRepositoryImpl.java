@@ -52,6 +52,15 @@ public class VehicleRepositoryImpl extends BaseRepository implements VehicleRepo
 		return false;
 	}
 
+	@Transactional
+	public void updateVehicle(Vehicle vehicle) {
+		EntityManager entityManager = getEntityManager();
+		entityManager.merge(vehicle);
+		System.out.println("vehicle inserted..." + vehicle);
+	}
+	
+	
+
 	
 
 }

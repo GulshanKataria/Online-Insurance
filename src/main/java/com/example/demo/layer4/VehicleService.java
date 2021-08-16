@@ -10,4 +10,5 @@ public interface VehicleService {
 	List<Vehicle> selectVehicleByCustomerIdService(int customerId);
 	void insertVehicleService(Vehicle vehicle);
 	boolean findVehicleByRegsitartionNumberService(String registerNumber);
+	void updateVehicleService(Vehicle vehicle);
 }

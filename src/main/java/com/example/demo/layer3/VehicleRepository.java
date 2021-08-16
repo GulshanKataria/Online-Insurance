@@ -12,4 +12,5 @@ public interface VehicleRepository {
 	List<Vehicle> selectVehicleByCustomerId(int customerId);
 	void insertVehicle(Vehicle vehicle);
 	boolean findVehicleByRegsitrationNumber(String registerNumber);
+	void updateVehicle(Vehicle vehicle);
 }

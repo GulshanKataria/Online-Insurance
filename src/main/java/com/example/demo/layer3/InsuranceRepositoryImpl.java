@@ -17,10 +17,11 @@ import com.example.demo.layer2.Travel;
 public class InsuranceRepositoryImpl  extends BaseRepository implements InsuranceRepository {
 
 	@Transactional
-	public void insertInsurance(Insurance ins) {
+	public Insurance insertInsurance(Insurance ins) {
 		EntityManager entityManager = getEntityManager();
 		entityManager.persist(ins);
 		System.out.println("Insurance inserted..."+ins);
+		return ins;
 	}
 	
 	@Transactional

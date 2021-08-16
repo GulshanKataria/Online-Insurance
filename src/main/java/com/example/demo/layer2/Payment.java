@@ -23,7 +23,7 @@ public class Payment implements Serializable {
 	private double paymentAmount;
 
 	//bi-directional one-to-one association to Insurance
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name="INSURANCEID")
 	private Insurance insurance;
 

@@ -10,6 +10,6 @@ import com.example.demo.layer2.Travel;
 
 @Repository
 public interface InsuranceRepository {
-	void insertInsurance(Insurance ins);
+	Insurance insertInsurance(Insurance ins);
 	List<Insurance> selectCustomerById(int customerId);
 }

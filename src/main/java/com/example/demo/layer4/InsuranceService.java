@@ -10,7 +10,7 @@ import com.example.demo.layer2.Travel;
 @Service
 public interface InsuranceService {
 
-	void insertInsuranceService(Insurance ins);
+	Insurance insertInsuranceService(Insurance ins);
 	List<Insurance> selectCustomerByIdService(int customerId);
 	List<Travel> selectTravelByIdService(int travelId);
 	void insertTravelService(Travel tra);

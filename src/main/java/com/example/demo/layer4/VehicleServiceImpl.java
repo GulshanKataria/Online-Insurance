@@ -39,4 +39,9 @@ public class VehicleServiceImpl implements VehicleService {
 		
 	}
 
+	@Override
+	public void updateVehicleService(Vehicle vehicle) {
+		vehicleRepo.updateVehicle(vehicle);
+	}
+
 }
