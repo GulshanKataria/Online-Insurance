@@ -40,6 +40,21 @@ public class Claim implements Serializable {
 
 	public Claim() {
 	}
+	
+	
+
+	public Claim(double claimAmountinsured, int claimApprovalstatus, LocalDate claimDateofsubmission,
+			String claimReason, Insurance insurance) {
+		super();
+
+		this.claimAmountinsured = claimAmountinsured;
+		this.claimApprovalstatus = claimApprovalstatus;
+		this.claimDateofsubmission = claimDateofsubmission;
+		this.claimReason = claimReason;
+		this.insurance = insurance;
+	}
+
+
 
 	public int getClaimId() {
 		return this.claimId;

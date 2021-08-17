@@ -1,5 +1,7 @@
 package com.example.demo.layer3;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.layer2.Customer;
@@ -18,5 +20,7 @@ public interface CustomerRepository {
 	public Customer fetchCustomerByEmailIdAndPassword(String email, String password);
 
 	public Customer updateCustomerPassword(Customer customer);
+	
+	public List<Customer> fetchAllCustomer();
 
 }

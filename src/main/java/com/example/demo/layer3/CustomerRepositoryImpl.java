@@ -1,5 +1,7 @@
 package com.example.demo.layer3;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -130,6 +132,25 @@ public class CustomerRepositoryImpl extends BaseRepository implements CustomerRe
 		return customerObj;
 		
 		
+	}
+	
+
+	@Transactional
+	public List<Customer> fetchAllCustomer() {
+
+
+		EntityManager entityManager = getEntityManager();
+
+		Query query = entityManager.createQuery(" from Customer");
+		List<Customer> cusList = query.getResultList();
+		System.out.println("emplist "+cusList.size());
+
+		//tx.commit();
+		return cusList;
+
+
+
+
 	}
 
 }

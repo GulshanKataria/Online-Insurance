@@ -74,6 +74,15 @@ public class Insurance implements Serializable {
 
 	public Insurance() {
 	}
+	
+	
+
+	public Insurance(int insuranceId) {
+	super();
+	this.insuranceId = insuranceId;
+}
+
+
 
 	public int getInsuranceId() {
 		return this.insuranceId;

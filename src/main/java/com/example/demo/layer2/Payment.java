@@ -29,6 +29,17 @@ public class Payment implements Serializable {
 
 	public Payment() {
 	}
+	
+	
+
+	public Payment(double paymentAmount, Insurance insurance) {
+		super();
+		
+		this.paymentAmount = paymentAmount;
+		this.insurance = insurance;
+	}
+
+
 
 	public int getPaymentId() {
 		return this.paymentId;
