@@ -14,14 +14,15 @@ import com.example.demo.layer2.Travel;
 public class TravelRepositoryImpl extends BaseRepository implements TravelRepository {
 
 	@Transactional
-	public void insertTravel(Travel tra) {
+	public Travel insertTravel(Travel tra) {
 		EntityManager entityManager = getEntityManager();
 		entityManager.persist(tra);
-		System.out.println("travel inserted..." + tra);
+		System.out.println("travel inserted..."+tra);
+		return tra;
 	}
-
+	
 	@Transactional
-	public List<Travel> selectTravelById(int travelId) {
+	public List<Travel> selectTravelById(int travelId){
 		EntityManager entityManager = getEntityManager();
 		System.out.println("debug selectTravelById");
 		Query query = entityManager.createQuery("select t from Travel t where t.travelid =: tid");
@@ -29,5 +30,18 @@ public class TravelRepositoryImpl extends BaseRepository implements TravelReposi
 		List<Travel> travelList = query.getResultList();
 		return travelList;
 	}
+
+	@Transactional
+	public List<Travel> selectTravelByCustomerId(int customerId) {
+		EntityManager entityManager = getEntityManager();
+		System.out.println("debug selectTravelById");
+		Query query = entityManager.createQuery("from Travel where CUST_ID =: cid");
+		query.setParameter("cid", customerId);
+		List<Travel> travelListCust = query.getResultList();
+		return travelListCust;
+		 
+	}
+
+	
 
 }

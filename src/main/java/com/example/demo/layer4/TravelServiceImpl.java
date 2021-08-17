@@ -5,33 +5,37 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.layer2.Insurance;
 import com.example.demo.layer2.Travel;
-import com.example.demo.layer3.InsuranceRepositoryImpl;
-import com.example.demo.layer3.TravelRepository;
 import com.example.demo.layer3.TravelRepositoryImpl;
-
+ 
 @Service
-public class TravelServiceImpl implements TravelService {
+public class TravelServiceImpl implements TravelService{
 
 	public TravelServiceImpl() {
 		System.out.println("In layer 4");
 	}
-
+	
 	@Autowired
-	TravelRepositoryImpl travelRepo;
+	TravelRepositoryImpl traRepo;
+	
+	@Override
+	public Travel insertTravelService(Travel tra) {
+		return traRepo.insertTravel(tra);
 
+	}
 
 	@Override
 	public List<Travel> selectTravelByIdService(int travelId) {
 		System.out.println("InsuranceServiceImpl: Layer 4 ");
-		return travelRepo.selectTravelById(travelId);
+		return traRepo.selectTravelById(travelId);
 	}
 
 	@Override
-	public void insertTravelService(Travel tra) {
-		travelRepo.insertTravel(tra);
-
+	public List<Travel> selectTravelByCustomerIdService(int customerId) {
+		// TODO Auto-generated method stub
+		return traRepo.selectTravelByCustomerId(customerId);
 	}
+
+	
 
 }

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.layer2.Insurance;
+ 
 import com.example.demo.layer2.Travel;
-import com.example.demo.layer4.InsuranceServiceImpl;
+ 
 import com.example.demo.layer4.TravelServiceImpl;
 
 @CrossOrigin
@@ -23,27 +23,37 @@ import com.example.demo.layer4.TravelServiceImpl;
 public class TravelJPAController {
 
 	public TravelJPAController() {
-		System.out.println("In Layer 5 Travel Controller");
+		System.out.println("In Layer 5");
 	}
 
 	
 	@Autowired
-	TravelServiceImpl travelService;
-	
+	TravelServiceImpl traService;
 	
 	@GetMapping
 	@ResponseBody
 	@RequestMapping(value="/getTravel/{travelId}")
 	public List<Travel> getTravelById(@PathVariable int travelId){
 		System.out.println("in getInsuranceByCustomerId() ... method");
-		return travelService.selectTravelByIdService(travelId);
+		return traService.selectTravelByIdService(travelId);
 	}
 	
-	@PostMapping
+	
+	@GetMapping
+	@ResponseBody
+	@RequestMapping(value="/getTravelByCustid/{customerId}")
+	public List<Travel> getTravelByCustId(@PathVariable int customerId){
+		System.out.println("in getInsuranceByCustomerId() ... method");
+		return traService.selectTravelByCustomerIdService(customerId);
+	}
+	
+	@PostMapping()
 	@ResponseBody
 	@RequestMapping(value = "/addTravel")
-	public void addTravel(@RequestBody Travel travel) {
-		travelService.insertTravelService(travel);
-	 }
+	public Travel addTravel(@RequestBody Travel travel) {
+		
+		 return traService.insertTravelService(travel);
+
+	}
 	
 }
